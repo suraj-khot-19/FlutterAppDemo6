@@ -47,7 +47,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   return ListView.builder(
                       itemCount: postList.length,
                       itemBuilder: (context, index) {
-                        return Text(index.toString());
+                        return Card(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                postList[index].title.toString(),
+                              )
+                            ],
+                          ),
+                        );
                       });
                 }
               },
