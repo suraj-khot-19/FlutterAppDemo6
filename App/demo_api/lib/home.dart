@@ -21,6 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
+        // postList.clear();
         postList.add(PostsModel.fromJson(i));
       }
       return postList;
@@ -54,12 +55,22 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  postList[index].title.toString(),
+                                // title
+                                const Text(
+                                  'Title',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                Text(
-                                  postList[index].body.toString(),
+                                Text(postList[index].title.toString()),
+                                // description
+                                const Text(
+                                  "Description:",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 ),
+                                Text(postList[index].body.toString()),
                               ],
                             ),
                           ),
